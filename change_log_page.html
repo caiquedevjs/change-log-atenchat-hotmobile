@@ -100,8 +100,15 @@
       color: var(--cinza-texto);
     }
 
+    .subtitulo {
+      margin-top: 16px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--azul-principal);
+    }
+
     .update ul {
-      margin-top: 12px;
+      margin-top: 8px;
       padding-left: 18px;
     }
 
@@ -146,7 +153,6 @@
     </main>
   </div>
 
-  <!-- JS Dinâmico -->
   <script>
     fetch('updates.json')
       .then(res => res.json())
@@ -155,24 +161,58 @@
         const container = document.getElementById('conteudo-atualizacoes');
 
         data.forEach(update => {
-          // Adiciona item no menu
           const li = document.createElement('li');
           li.innerHTML = `<a href="#${update.id}">Versão ${update.versao}</a>`;
           menu.appendChild(li);
 
-          // Adiciona conteúdo da atualização
           const section = document.createElement('section');
           section.className = 'update';
           section.id = update.id;
 
-          section.innerHTML = `
+          const itens = update.itens;
+          const categorias = {
+            '✨': [],
+            '🚸': [],
+            '🐛': [],
+            '⚠️': []
+          };
+
+          let categoriaAtual = '';
+          itens.forEach(item => {
+            if (item.startsWith('✨')) categoriaAtual = '✨';
+            else if (item.startsWith('🚸')) categoriaAtual = '🚸';
+            else if (item.startsWith('🐛')) categoriaAtual = '🐛';
+            else if (item.startsWith('⚠️')) categoriaAtual = '⚠️';
+            else if (categoriaAtual) categorias[categoriaAtual].push(item);
+          });
+
+          let html = `
             <h2>Versão ${update.versao} – ${update.titulo}</h2>
             <time>${update.data}</time>
-            <ul>
-              ${update.itens.map(item => `<li>${item}</li>`).join('')}
-            </ul>
           `;
 
+          if (categorias['✨'].length) {
+            html += `<div class="subtitulo">✨ Novas Funcionalidades (Added)</div><ul>`;
+            categorias['✨'].forEach(i => html += `<li>${i}</li>`);
+            html += `</ul>`;
+          }
+          if (categorias['🚸'].length) {
+            html += `<div class="subtitulo">🚸 Ajustes e Alterações (Changed)</div><ul>`;
+            categorias['🚸'].forEach(i => html += `<li>${i}</li>`);
+            html += `</ul>`;
+          }
+          if (categorias['🐛'].length) {
+            html += `<div class="subtitulo">🐛 Correções (Fixed)</div><ul>`;
+            categorias['🐛'].forEach(i => html += `<li>${i}</li>`);
+            html += `</ul>`;
+          }
+          if (categorias['⚠️'].length) {
+            html += `<div class="subtitulo">⚠️ Avisos</div><ul>`;
+            categorias['⚠️'].forEach(i => html += `<li>${i}</li>`);
+            html += `</ul>`;
+          }
+
+          section.innerHTML = html;
           container.appendChild(section);
         });
       })
