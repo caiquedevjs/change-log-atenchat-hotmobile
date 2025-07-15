@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atualizações do Sistema – Atendchat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --azul-principal: #007bff;
+      --cinza-claro: #f4f5f7;
+      --cinza-texto: #6c757d;
+      --branco: #ffffff;
+      --preto: #212529;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--cinza-claro);
+      color: var(--preto);
+      padding: 40px 20px;
+    }
+
+    .layout {
+      display: flex;
+      max-width: 1200px;
+      margin: auto;
+      background-color: var(--branco);
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: var(--cinza-claro);
+      padding: 30px 20px;
+      border-right: 1px solid #ddd;
+    }
+
+    .sidebar h2 {
+      font-size: 1rem;
+      color: var(--azul-principal);
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul li a {
+      text-decoration: none;
+      color: var(--preto);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .sidebar ul li a:hover {
+      color: var(--azul-principal);
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .main-content h1 {
+      color: var(--azul-principal);
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .update {
+      border-left: 4px solid var(--azul-principal);
+      padding-left: 16px;
+      margin-bottom: 40px;
+    }
+
+    .update h2 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    .update time {
+      font-size: 0.9rem;
+      color: var(--cinza-texto);
+    }
+
+    .update ul {
+      margin-top: 12px;
+      padding-left: 18px;
+    }
+
+    .update ul li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--cinza-texto);
+      padding: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <h2>🔄 Versões</h2>
+      <ul id="menu-lateral"></ul>
+    </nav>
+
+    <main class="main-content">
+      <h1>📢 Atualizações do Sistema</h1>
+      <div id="conteudo-atualizacoes"></div>
+      <footer>
+        Desenvolvido por Hotmobile – Plataforma Atendchat © 2025
+      </footer>
+    </main>
+  </div>
+
+  <!-- JS Dinâmico -->
+  <script>
+    fetch('updates.json')
+      .then(res => res.json())
+      .then(data => {
+        const menu = document.getElementById('menu-lateral');
+        const container = document.getElementById('conteudo-atualizacoes');
+
+        data.forEach(update => {
+          // Adiciona item no menu
+          const li = document.createElement('li');
+          li.innerHTML = `<a href="#${update.id}">Versão ${update.versao}</a>`;
+          menu.appendChild(li);
+
+          // Adiciona conteúdo da atualização
+          const section = document.createElement('section');
+          section.className = 'update';
+          section.id = update.id;
+
+          section.innerHTML = `
+            <h2>Versão ${update.versao} – ${update.titulo}</h2>
+            <time>${update.data}</time>
+            <ul>
+              ${update.itens.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          `;
+
+          container.appendChild(section);
+        });
+      })
+      .catch(error => {
+        console.error("Erro ao carregar updates.json:", error);
+        document.getElementById('conteudo-atualizacoes').innerHTML = "<p>Erro ao carregar atualizações.</p>";
+      });
+  </script>
+</body>
+</html>
