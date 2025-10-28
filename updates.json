@@ -2,7 +2,7 @@
      {
     "id": "v3.11.0",
     "versao": "v3.11.0",
-    "titulo": "Atualização - White Label v3.11.0",
+    "titulo": "Atualização - v3.11.0",
     "data": "23 de Julho de 2024",
     "itens": [
       "✨ Novas funcionalidades (Added)",
@@ -27,7 +27,7 @@
    {
     "id": "v3.14.1",
     "versao": "v3.14.1",
-    "titulo": "Atualização - White Label v3.14.1",
+    "titulo": "Atualização - v3.14.1",
     "data": "23 de Novembro de 2024",
     "itens": [
       "✨ Novas Funcionalidades (Added)",
@@ -67,7 +67,7 @@
    {
     "id": "v3.19.0",
     "versao": "v3.19.0",
-    "titulo": "Atualização - White Label v3.19.0",
+    "titulo": "Atualização - v3.19.0",
     "data": "09 de Maio de 2025",
     "itens": [
       "✨ Novas Funcionalidades (Added)",
@@ -100,7 +100,7 @@
     {
     "id": "v3.9.0",
     "versao": "v3.9.0",
-    "titulo": "Atualização - whitelabel v3.9.0",
+    "titulo": "Atualização - v3.9.0",
 
     "data": "29 de Maio de 2025",
     "itens": [
@@ -162,7 +162,7 @@
     {
     "id": "v4.3.0",
     "versao": "v4.3.0",
-    "titulo": "Atualização - White Label v4.3.0",
+    "titulo": "Atualização - v4.3.0",
     "data": "15 de Junho de 2025",
     "itens": [
       "✨ Novas Funcionalidades (Added)",
@@ -229,7 +229,7 @@
  {
     "id": "v4.3.1",
     "versao": "v4.3.1",
-    "titulo": "Atualização - White Label v4.3.1",
+    "titulo": "Atualização - v4.3.1",
     "data": "01 de Julho de 2025",
     "itens": [
       "✨ Novas Funcionalidades (Added)",
@@ -252,7 +252,7 @@
   {
     "id": "v4.3.0.2",
     "versao": "v4.3.0.2",
-    "titulo": "Atualização - Whitelabel v4.3.0.2",
+    "titulo": "Atualização - v4.3.0.2",
     "data": "01 de Julho de 2025",
     "itens": [
 "✨ Novas funcionalidades (Added)",
@@ -273,7 +273,7 @@
   {
     "id": "v4.3.1.EB",
     "versao": "v4.3.1.EB",
-    "titulo": "Atualização - White Label v4.3.1.EB",
+    "titulo": "Atualização - v4.3.1.EB",
     "data": "01 de Julho de 2025",
     "itens": [
 "✨ Novas funcionalidades (Added)",
@@ -304,5 +304,76 @@
 
 "Esta é a última versão não a mais suporte à interface de usuário v3." 
     ]
+  },
+
+
+
+  {
+    "id": "v4.5.3",
+    "versao": "v4.5.3",
+    "titulo": "Atualização - v4.5.3",
+    "data": "18 de setembro 2025",
+    "itens": [
+"✨ Novas funcionalidades (Added)",
+
+"➕ Arquivos PDF Captian",
+"➕ Filtro contato por marcador",
+"➕ Contagem de conversas na caixa de entrada (Inbox viewer)",
+"➕ Copiar atributo de um contato/conversa",
+"➕ Atribuição automática de conversas após 15 minutos",
+"➕ Mostrar artigos da central de ajuda no balão do site",
+"➕ Conexão Coexistência",
+"➕ Novo layout da caixa de entrada",
+"➕ Botão para sincronizar template da Meta",
+"➕ ID de contato enviado pelo Dashboard app",
+"➕ Digitando....",
+"➕ Avatar carregando na primeira interação",
+
+"🚸 Ajustes e alterações (Changed)",
+
+"✅ Ajuste campo Indenficador na tela de cadastro de contato (Não Editável)",
+"✅ Botão de exclusão de contato opcional por conta",
+"✅ Menu lateral da conversa como visualização opcionais (n8n, linear, typebot)",
+"✅ Ajuste em campanhas oficiais",
+
+
+"⚠️ Extra:  ",
+
+"Correção nome e telefone em grupos antes da mensagem." 
+    ]
+  },
+
+
+   {
+    "id": "v4.7.0",
+    "versao": "v4.7.0",
+    "titulo": "Atualização -  v4.7.0",
+    "data": "25 de outubro 2025",
+    "itens": [
+"✨ Novas funcionalidades (Added)",
+
+"➕ Swagger na API Acesse dominio/swagger/index.html",
+"➕ Opção para editar mensagens",
+"➕ Adição de filtro para filtrar por admin ou nome",
+"➕ Caixas de entrada verticais, permitindo transferir conversas entre elas",
+"➕ Idioma Francês adicionado",
+"➕ Barra lateral para gerenciamento de múltiplas contas",
+
+
+"🚸 Ajustes e alterações (Changed)",
+
+"✅ Botão de mensagem única exibindo apenas as configurações do WhatsApp",
+"✅ Exibição do nome do contato no canal Instagram",
+"✅ Correção da tradução do balão exibido no site fora do horário de atendimento",
+"✅ Remoção do menu Kanban quando não estiver liberado no Super Admin",
+"✅ Correção de erro ao agendar vídeos no Agendador",
+"✅ Nova opção para exibir ou ocultar o nome do agente na API Oficial",
+"✅ Correção de bug de usuário na Aplicação Anônima",
+"✅ Melhorias gerais de tradução em toda a aplicação"
+
+
+
+    ]
   }
+
 ]
